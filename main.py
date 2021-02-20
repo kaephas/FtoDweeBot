@@ -33,6 +33,6 @@ async def on_message(message):
         unit = "Celsius"
       await message.channel.send(str(round(convert, 2)) + " " + unit);
     else:
-      await message.channel.send("That's not a number.")
+      await message.channel.send("Usage: $dwee # [-c (for C to F)]")
 
 client.run(os.getenv('TOKEN'))

@@ -1,8 +1,10 @@
 import discord
 import os
+from keep_alive import keep_alive
 
 client = discord.Client()
 async def on_ready():
+  await client.change_presence(activity=discord.Game('$dwee # (-c)'))
   print('We have logged in as {0.user}'.format(client))
 
 @client.event
@@ -34,5 +36,5 @@ async def on_message(message):
       await message.channel.send(str(round(convert, 2)) + " " + unit);
     else:
       await message.channel.send("Usage: $dwee # (add -c for C to F")
-
+keep_alive()
 client.run(os.getenv('TOKEN'))
